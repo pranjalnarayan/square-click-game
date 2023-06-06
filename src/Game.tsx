@@ -26,6 +26,10 @@ const Game = () => {
           newRows[rowInd][sqInd] = DEFAULT_COLOR;
           setRows(newRows);
         }, DELAY * (ind + 1));
+
+        if (ind === totalSuares - 1) {
+          countRef.current = [];
+        }
       });
     }
   };
