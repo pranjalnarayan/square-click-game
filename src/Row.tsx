@@ -10,7 +10,12 @@ const Row = ({ row, rowInd, onSquareClick }) => {
     <div style={{ display: 'flex', marginBottom: '2px' }}>
       {row.map((color, sqInd) => {
         return (
-          <Square color={color} onSquareClick={onClickHandler} sqInd={sqInd} />
+          <Square
+            key={sqInd}
+            color={color}
+            onSquareClick={onClickHandler}
+            sqInd={sqInd}
+          />
         );
       })}
     </div>

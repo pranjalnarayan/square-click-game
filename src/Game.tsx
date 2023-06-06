@@ -48,7 +48,12 @@ const Game = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       {rows.map((squares, rowInd) => (
-        <Row row={squares} rowInd={rowInd} onSquareClick={onSquareClick} />
+        <Row
+          key={rowInd}
+          row={squares}
+          rowInd={rowInd}
+          onSquareClick={onSquareClick}
+        />
       ))}
     </div>
   );
