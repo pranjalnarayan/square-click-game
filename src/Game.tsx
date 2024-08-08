@@ -5,12 +5,23 @@ const DEFAULT_COLOR = 'red';
 const SELECTED_COLOR = 'green';
 const DELAY = 500;
 
+const getInitialState = (rows = []) => {
+  const formedState = [];
+
+  rows.forEach((cellCount) => {
+    const cells = [];
+    for (let i = 0; i < cellCount; i++) {
+      cells.push(DEFAULT_COLOR);
+    }
+    if (cells.length) {
+      formedState.push(cells);
+    }
+  });
+  return formedState;
+};
+
 const Game = () => {
-  const [rows, setRows] = React.useState([
-    [DEFAULT_COLOR, DEFAULT_COLOR, DEFAULT_COLOR],
-    [DEFAULT_COLOR],
-    [DEFAULT_COLOR, DEFAULT_COLOR, DEFAULT_COLOR],
-  ]);
+  const [rows, setRows] = React.useState(getInitialState([3, 1, 3]));
   const countRef = React.useRef([]);
   const undoProgressRef = React.useRef(false);
 
